@@ -1,7 +1,7 @@
 consul-with-docker
 =================
 
-Consul Template and Registrator have good chemistry, and combine Consul and Docker effectively.
+Consul Template and Registrator(https://github.com/progrium/registrator) have good chemistry, and combine Consul and Docker effectively.
 For example, they enable to update HAProxy node that is running on Docker easy and quickly, in real time.
 
 This repository is environment of Consul with Docker include Consul Template and Registrator.
