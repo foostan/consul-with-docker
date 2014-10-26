@@ -1,7 +1,10 @@
 consul-with-docker
 =================
 
-The environment of Consul with Docker include Consul Template and Registrator.
+Consul Template and Registrator have good chemistry, and combine Consul and Docker effectively.
+For example, they enable to update HAProxy node that is running on Docker easy and quickly, in real time.
+
+This repository is environment of Consul with Docker include Consul Template and Registrator.
 Usage is here in Japanese http://fstn.hateblo.jp/entry/2014/10/26/153247
 
 ## Overview
