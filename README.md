@@ -17,9 +17,9 @@ A Virtual Machine include these packages
 
 and, the endpoint of web services is `192.168.33.11:80` in this environment.
 
-# Prepare environment
+## Prepare environment
 
-## Build by Vagrant and Ansible
+### Build by Vagrant and Ansible
 
 ```
 $ git clone https://github.com/foostan/consul-with-docker.git
@@ -27,7 +27,7 @@ $ cd consul-with-docker
 $ vagrant up
 ```
 
-## Run Consul agent
+### Run Consul agent
 
 ```
 vagrant@node-1:~$ consul agent -data-dir=/tmp/consul -server -bootstrap
@@ -44,23 +44,23 @@ vagrant@node-1:~$ consul agent -data-dir=/tmp/consul -server -bootstrap
     Gossip encrypt: false, RPC-TLS: false, TLS-Incoming: false
 ```
 
-## Run Consul template
+### Run Consul template
 ```
 vagrant@node-1:~$ sudo consul-template\
  -consul=localhost:8500\
  -template=/vagrant/haproxy.ctmpl:/etc/haproxy/haproxy.cfg:"/etc/init.d/haproxy reload"
 ```
 
-# Build tinyweb and Run a container
+## Build tinyweb and Run a container
 
-## Build tinyweb
+### Build tinyweb
 Tinyweb is a simple web server for a test environment by nc command.
 
 ```
 vagrant@node-1:~$ docker build -t foostan/tinyweb /vagrant/tinyweb/
 ```
 
-## Run a container
+### Run a container
 
 ```
 docker run -p 80 -d tinyweb
@@ -70,7 +70,7 @@ CONTAINER ID        IMAGE                    COMMAND                CREATED     
 c437b2717b76        foostan/tinyweb:latest   "\"/bin/sh -c 'while   5 minutes ago       Up 5 minutes        0.0.0.0:49178->80/tcp   romantic_carson
 ```
 
-# Check
+## Check
 Add a tinyweb service in consul by Registrator and update HAProxy configuration by Consul Template after running a container.
 
 Check Consul services
@@ -123,7 +123,7 @@ $ curl 192.168.33.11
 c437b2717b76
 ```
 
-## Run and kill multiple containers
+### Run and kill multiple containers
 Run 5 containers
 
 ```
