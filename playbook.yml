@@ -26,3 +26,4 @@
 
     - name: install haproxy
       apt: pkg=haproxy update_cache=yes
+      shell: sed -i -e 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
