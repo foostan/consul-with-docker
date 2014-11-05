@@ -3,29 +3,29 @@
   sudo: yes
   tasks:
     - name: install unzip
-      apt: pkg=unzip update_cache=yes
+      apt: name=unzip update_cache=yes
 
     - name: install consul
-      command: wget https://dl.bintray.com/mitchellh/consul/0.4.1_linux_amd64.zip
+      shell: wget https://dl.bintray.com/mitchellh/consul/0.4.1_linux_amd64.zip
           && unzip 0.4.1_linux_amd64.zip
           && mv consul /usr/local/bin
           && rm 0.4.1_linux_amd64.zip creates=/usr/local/bin/consul
 
     - name: install consul-template
-      command: wget https://github.com/hashicorp/consul-template/releases/download/v0.1.0/consul-template_0.1.0_linux_amd64.tar.gz
-          && tar xzf consul-template_0.1.0_linux_amd64.tar.gz
-          && mv consul-template_0.1.0_linux_amd64/consul-template /usr/local/bin
-          && rmdir consul-template_0.1.0_linux_amd64
-          && rm consul-template_0.1.0_linux_amd64.tar.gz creates=/usr/local/bin/consul-template
+      shell: wget https://github.com/hashicorp/consul-template/releases/download/v0.2.0/consul-template_0.2.0_linux_amd64.tar.gz
+          && tar xzf consul-template_0.2.0_linux_amd64.tar.gz
+          && mv consul-template_0.2.0_linux_amd64/consul-template /usr/local/bin
+          && rmdir consul-template_0.2.0_linux_amd64
+          && rm consul-template_0.2.0_linux_amd64.tar.gz creates=/usr/local/bin/consul-template
 
     - name: install registretor
-      command: wget https://github.com/progrium/registrator/releases/download/v0.4.0/registrator_0.4.0_linux_x86_64.tgz
+      shell: wget https://github.com/progrium/registrator/releases/download/v0.4.0/registrator_0.4.0_linux_x86_64.tgz
           && tar xzf registrator_0.4.0_linux_x86_64.tgz
           && mv registrator /usr/local/bin
           && rm registrator_0.4.0_linux_x86_64.tgz creates=/usr/local/bin/registrator
 
     - name: install haproxy
-      apt: pkg=haproxy update_cache=yes
+      apt: name=haproxy
 
     - name: setup haproxy
       command: sed -i -e 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
