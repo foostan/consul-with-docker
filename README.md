@@ -54,6 +54,11 @@ vagrant@node-1:~$ sudo consul-template\
  -template=/vagrant/haproxy.ctmpl:/etc/haproxy/haproxy.cfg:"/etc/init.d/haproxy reload"
 ```
 
+## Run Registrator
+```
+vagrant@node-1:~$ registrator consul:
+```
+
 ## Build tinyweb and Run a container
 
 ### Build tinyweb
@@ -66,7 +71,7 @@ vagrant@node-1:~$ docker build -t foostan/tinyweb /vagrant/tinyweb/
 ### Run a container
 
 ```
-docker run -p 80 -d tinyweb
+docker run -p 80 -d foostan/tinyweb
 c437b2717b76dde8c31211fea09bc5bb60b8c16892161db24cb31a1b49543ae1
 vagrant@node-1:~$ docker ps
 CONTAINER ID        IMAGE                    COMMAND                CREATED             STATUS              PORTS                   NAMES
