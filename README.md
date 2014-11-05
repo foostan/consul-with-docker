@@ -51,7 +51,7 @@ vagrant@node-1:~$ consul agent -data-dir=/tmp/consul -server -bootstrap
 ```
 vagrant@node-1:~$ sudo consul-template\
  -consul=localhost:8500\
- -template=/vagrant/haproxy.ctmpl:/etc/haproxy/haproxy.cfg:"/etc/init.d/haproxy reload"
+ -template="/vagrant/haproxy.ctmpl:/etc/haproxy/haproxy.cfg:service haproxy reload"
 ```
 
 ## Run Registrator
