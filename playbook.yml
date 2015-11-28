@@ -19,7 +19,7 @@
           && rm consul-template_0.2.0_linux_amd64.tar.gz creates=/usr/local/bin/consul-template
 
     - name: install registretor
-      shell: wget https://github.com/progrium/registrator/releases/download/v0.4.0/registrator_0.4.0_linux_x86_64.tgz
+      shell: wget https://github.com/gliderlabs/registrator/releases/download/v0.4.0/registrator_0.4.0_linux_x86_64.tgz
           && tar xzf registrator_0.4.0_linux_x86_64.tgz
           && mv registrator /usr/local/bin
           && rm registrator_0.4.0_linux_x86_64.tgz creates=/usr/local/bin/registrator
